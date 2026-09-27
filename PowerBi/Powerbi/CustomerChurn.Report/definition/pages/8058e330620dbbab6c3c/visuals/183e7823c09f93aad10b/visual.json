@@ -1,0 +1,237 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "183e7823c09f93aad10b",
+  "position": {
+    "x": 194,
+    "y": 758,
+    "z": 29,
+    "height": 266,
+    "width": 794,
+    "tabOrder": 29
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerChurn"
+                    }
+                  },
+                  "Property": "customerID"
+                }
+              },
+              "queryRef": "CustomerChurn.customerID",
+              "nativeQueryRef": "customerID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerChurn"
+                    }
+                  },
+                  "Property": "tenure"
+                }
+              },
+              "queryRef": "CustomerChurn.tenure",
+              "nativeQueryRef": "tenure"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerChurn"
+                    }
+                  },
+                  "Property": "Contract"
+                }
+              },
+              "queryRef": "CustomerChurn.Contract",
+              "nativeQueryRef": "Contract"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerChurn"
+                    }
+                  },
+                  "Property": "InternetService"
+                }
+              },
+              "queryRef": "CustomerChurn.InternetService",
+              "nativeQueryRef": "InternetService"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerChurn"
+                    }
+                  },
+                  "Property": "MonthlyCharges"
+                }
+              },
+              "queryRef": "CustomerChurn.MonthlyCharges",
+              "nativeQueryRef": "MonthlyCharges"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerChurn"
+                    }
+                  },
+                  "Property": "TotalCharges"
+                }
+              },
+              "queryRef": "CustomerChurn.TotalCharges",
+              "nativeQueryRef": "TotalCharges"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CustomerChurn"
+                    }
+                  },
+                  "Property": "ChurnLabel"
+                }
+              },
+              "queryRef": "CustomerChurn.ChurnLabel",
+              "nativeQueryRef": "ChurnLabel"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#16233F'"
+                    }
+                  }
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {}
+        },
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "CustomerChurn.ChurnLabel"
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E3EAF3'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+table MLModelPerformance
+	lineageTag: 7a1e2b3c-4d5e-6f70-8192-a3b4c5d6e7f8
+
+	column Metric
+		lineageTag: b4162803-de95-4a14-b277-bdb236905158
+		isNameInferred
+		sourceColumn: [Metric]
+
+	column 'Logistic Regression'
+		lineageTag: 1e6f0039-7c5a-46a4-9373-376863f6d51b
+		isNameInferred
+		sourceColumn: [Logistic Regression]
+
+	column 'Random Forest'
+		lineageTag: fe88b991-a836-4f44-a0c2-bc4930650d54
+		isNameInferred
+		sourceColumn: [Random Forest]
+
+	column SortOrder
+		lineageTag: 85b4e74d-a795-4b8c-a668-eab80d5f991d
+		isNameInferred
+		sourceColumn: [SortOrder]
+
+	partition MLModelPerformance = calculated
+		mode: import
+		source =
+				DATATABLE(
+				    "Metric", STRING,
+				    "Logistic Regression", STRING,
+				    "Random Forest", STRING,
+				    "SortOrder", INTEGER,
+				    {
+				        {"Accuracy", "80.24%", "76.47%", 1},
+				        {"Precision", "64.37%", "54.77%", 2},
+				        {"Recall", "57.49%", "66.04%", 3},
+				        {"F1 Score", "60.73%", "59.88%", 4},
+				        {"ROC-AUC", "83.63%", "81.45%", 5}
+				    }
+				)
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_ProTooling = ["DevMode"]
+

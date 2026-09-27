@@ -1,0 +1,232 @@
+table CustomerChurn
+	lineageTag: 96df4198-eeac-4840-970e-7fe3901fd974
+
+	measure 'Total Customers' = COUNTROWS('CustomerChurn')
+		lineageTag: c9ec0f68-9bb5-422e-8d2d-10fce64b806d
+
+	measure 'Churned Customers' = CALCULATE(COUNTROWS('CustomerChurn'), 'CustomerChurn'[ChurnLabel] = "Yes")
+		lineageTag: c3ed1b91-b88d-435f-b1ca-597b7c72b704
+
+	measure 'Churn Rate' = DIVIDE([Churned Customers], [Total Customers])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e302e4e6-5754-4feb-b08e-d6b78bca96c6
+
+	measure 'Avg Monthly Charges' = AVERAGE('CustomerChurn'[MonthlyCharges])
+		formatString: "₹"#,##0.00
+		lineageTag: 9553603c-c243-4664-b65f-0d6bf9721f69
+
+	measure 'Churn Rate %' = DIVIDE(COUNTROWS('CustomerChurn'), CALCULATE(COUNTROWS('CustomerChurn'), ALLSELECTED('CustomerChurn'[ChurnLabel])))
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 3c467360-1e32-4d38-b7d1-42dc608019f3
+
+	column customerID
+		dataType: string
+		lineageTag: 2335173e-37ba-4a0c-9471-a2b4f2088ae4
+		summarizeBy: none
+		sourceColumn: customerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 134bc23f-6019-48d4-8c1c-acbcb89bb3fa
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column SeniorCitizen
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3eed4b2f-363f-44eb-a58a-354f454d793e
+		summarizeBy: none
+		sourceColumn: SeniorCitizen
+
+		annotation SummarizationSetBy = Automatic
+
+	column Partner
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 558d03a8-4cb1-4bf1-927e-ae23aee8ea2e
+		summarizeBy: none
+		sourceColumn: Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dependents
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 18e4dbf3-89aa-48c2-8e6d-2c6a09547050
+		summarizeBy: none
+		sourceColumn: Dependents
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenure
+		dataType: int64
+		formatString: 0
+		lineageTag: c229a2ab-264f-481f-a3f9-3013a841cf6c
+		summarizeBy: sum
+		sourceColumn: tenure
+
+		annotation SummarizationSetBy = Automatic
+
+	column PhoneService
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 33c31e2f-4dbe-46f1-a95b-360b7f998db7
+		summarizeBy: none
+		sourceColumn: PhoneService
+
+		annotation SummarizationSetBy = Automatic
+
+	column MultipleLines
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 65640a15-0b3f-4127-9fb9-8fdb3ab63ffc
+		summarizeBy: none
+		sourceColumn: MultipleLines
+
+		annotation SummarizationSetBy = Automatic
+
+	column InternetService
+		dataType: string
+		lineageTag: ee3eb891-07a4-45ff-a743-ff9452275c3c
+		summarizeBy: none
+		sourceColumn: InternetService
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnlineSecurity
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: eb8cb0c5-d7b1-4da8-8647-4c959ef079ae
+		summarizeBy: none
+		sourceColumn: OnlineSecurity
+
+		annotation SummarizationSetBy = Automatic
+
+	column OnlineBackup
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 706f41a3-b400-4f84-ad5d-77bdad1ce1f9
+		summarizeBy: none
+		sourceColumn: OnlineBackup
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeviceProtection
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9fbbaf6c-6a83-4383-a74f-0e697bec2238
+		summarizeBy: none
+		sourceColumn: DeviceProtection
+
+		annotation SummarizationSetBy = Automatic
+
+	column TechSupport
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: afd72e05-46df-4ffe-ad93-c88b2b83fb91
+		summarizeBy: none
+		sourceColumn: TechSupport
+
+		annotation SummarizationSetBy = Automatic
+
+	column StreamingTV
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 614d0a8e-aeea-494e-9ca3-184c6ed5d035
+		summarizeBy: none
+		sourceColumn: StreamingTV
+
+		annotation SummarizationSetBy = Automatic
+
+	column StreamingMovies
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 489e77cb-8926-490f-a214-835c6a073f3b
+		summarizeBy: none
+		sourceColumn: StreamingMovies
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contract
+		dataType: string
+		lineageTag: 977b27c9-552e-4b4b-94e1-64a758df619c
+		summarizeBy: none
+		sourceColumn: Contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaperlessBilling
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bb278b84-530d-46cd-9a20-b99597540ff6
+		summarizeBy: none
+		sourceColumn: PaperlessBilling
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentMethod
+		dataType: string
+		lineageTag: 8c7a4cc8-f58e-4147-8aa6-338f60eef999
+		summarizeBy: none
+		sourceColumn: PaymentMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthlyCharges
+		dataType: double
+		lineageTag: fd235439-00f2-4ddc-9069-59ba9bf24855
+		summarizeBy: sum
+		sourceColumn: MonthlyCharges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalCharges
+		dataType: double
+		lineageTag: 08dfe1d4-01d1-4192-b8bb-113c51416bc7
+		summarizeBy: sum
+		sourceColumn: TotalCharges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Churn
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 89f11e1c-6029-4569-8952-741f9817ece3
+		summarizeBy: none
+		sourceColumn: Churn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChurnLabel = IF('CustomerChurn'[Churn], "Yes", "No")
+		dataType: string
+		lineageTag: ea97a1ac-0994-4b17-9a99-ebfafd0d7aca
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TenureGroup = SWITCH(TRUE(), 'CustomerChurn'[tenure] <= 12, "0-12", 'CustomerChurn'[tenure] <= 24, "13-24", 'CustomerChurn'[tenure] <= 36, "25-36", 'CustomerChurn'[tenure] <= 48, "37-48", 'CustomerChurn'[tenure] <= 60, "49-60", "61-72")
+		dataType: string
+		lineageTag: 3fa2d57a-d5ba-4ee9-a19d-0d3ed2de84f4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CustomerChurn = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-VG6CRR4\MSSQL", "CustomerChurnAnalytics"),
+				    dbo_CustomerChurn = Source{[Schema="dbo",Item="CustomerChurn"]}[Data]
+				in
+				    dbo_CustomerChurn
+
+	annotation PBI_ResultType = Table
+
